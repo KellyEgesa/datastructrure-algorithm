@@ -4,6 +4,10 @@ function anagram(a, b) {
   }
   let frequency1 = {};
 
+  let obj = {
+    a: 0,
+  };
+
   for (let val of a) {
     frequency1[val] = (frequency1[val] || 0) + 1;
   }
@@ -16,7 +20,7 @@ function anagram(a, b) {
   }
   return true;
 }
-console.log(anagram("BABA", "AAB"));
+console.log(anagram("BABA", "AAAA"));
 console.log(anagram(" ", " "));
 console.log(anagram("aaz", "zza"));
 console.log(anagram("BABA", "aaBb"));
