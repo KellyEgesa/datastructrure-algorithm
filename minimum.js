@@ -1,38 +1,19 @@
-function substrCount(n, s) {
-  let obj = {};
-  for (let values of s) {
-    obj[values] = (obj[values] || 0) + 1;
-  }
-  let uniqueValuesNo = Object.keys(obj).length;
+function timeConversion(s) {
+  let hourFrt = s[s.length - 2];
+  let reminderStr = s.substr(2, s.length - (2 + 2));
 
-  let i = 1;
-  for (let j = 0; j < n; j++) {
-    if (s[j] === s[i]) {
-      uniqueValuesNo += 1;
+  if (hourFrt.toUpperCase() == "A") {
+    let value = s[0] + s[1];
+    if (parseInt(value) == 12) {
+      value = "00";
     }
+    return value + reminderStr;
+  } else {
+    let value = s[0] + s[1];
+    if (parseInt(value) !== 12) {
+      value = parseInt(value) + 12;
+    }
+    return value + reminderStr;
   }
 }
-function substrCount(s) {
-  let obj = {};
-  for (let values of s) {
-    obj[values] = (obj[values] || 0) + 1;
-  }
-  let uniqueValuesNo = 0;
-  for (let key in obj) {
-    uniqueValuesNo += obj[key];
-  }
-
-  let i = 1;
-  let k = 2;
-  for (let j = 0; j < s.length; j++) {
-    let k = j + 1;
-    if (s[j] === s[i]) {
-      uniqueValuesNo += 1;
-      i += 1;
-    }
-  }
-
-  console.log(uniqueValuesNo);
-}
-
-substrCount("AAAA");
+console.log(timeConversion("12:05:39AM"));
